@@ -2,14 +2,12 @@ const express=require('express');
 const http=require('http');
 const socketConfig=require('./config/socketIOConfig');
 const route  = require('./routes/route');
-const cors=require('cors');
 
 const app=express();
 const server=http.createServer(app);
 const io= require('socket.io')(server);
 
 app.use(express.json());
-app.use(cors());
 const port=process.env.PORT || 8080;
 app.use('/api',route);
 
